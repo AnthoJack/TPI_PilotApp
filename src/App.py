@@ -13,17 +13,17 @@ class App:
         self.views = {"image": ImageView(self.window, width = 850, height = 850), 
             "controls": ControlsView(self.window, column = 1), 
             "settings": View(self.window, height = 450, column = 1, row = 1, text = "Paramètres")}
-        self.views["controls"].content.append(Button(self.views["controls"], text = "UP"))
-        self.views["controls"].content.append(Button(self.views["controls"], text = "LEFT"))
-        self.views["controls"].content.append(Button(self.views["controls"], text = "CAMERA"))
-        self.views["controls"].content.append(Button(self.views["controls"], text = "RIGHT"))
-        self.views["controls"].content.append(Button(self.views["controls"], text = "DOWN"))
+        self.views["controls"].content.append(Button(self.views["controls"], bitmap = "@img/ArrowUP.xbm", height = 60, width = 60))
+        self.views["controls"].content.append(Button(self.views["controls"], bitmap = "@img/ArrowLEFT.xbm", height = 60, width = 60))
+        self.views["controls"].content.append(Button(self.views["controls"], bitmap = "@img/Camera.xbm", height = 60, width = 60))
+        self.views["controls"].content.append(Button(self.views["controls"], bitmap = "@img/ArrowRIGHT.xbm", height = 60, width = 60))
+        self.views["controls"].content.append(Button(self.views["controls"], bitmap = "@img/ArrowDOWN.xbm", height = 60, width = 60))
         self.views["controls"].empty = [0, 2, 6, 8]
         self.views["controls"].display()
         self.views["image"].display()
-        self.views["settings"].content.append(Setting(self.views["settings"], "saveImages", "Save images", False))
-        self.views["settings"].content.append(Setting(self.views["settings"], "imageDir", "Images directory"))
-        self.views["settings"].content.append(Setting(self.views["settings"], "imageQuality", "Image quality", robotSetting = True, appSetting = False))
+        self.views["settings"].content.append(Setting(self.views["settings"], "saveImages", "Sauver images", False))
+        self.views["settings"].content.append(Setting(self.views["settings"], "imageDir", "Répertoire images"))
+        self.views["settings"].content.append(Setting(self.views["settings"], "imageResolution", "Resolution image", robotSetting = True, appSetting = False))
         self.views["settings"].content.append(Button(self.views["settings"], text = "Appliquer"))
         self.views["settings"].display()
         # get config from file

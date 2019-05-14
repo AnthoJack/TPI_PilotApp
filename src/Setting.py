@@ -15,9 +15,9 @@ class Setting(Frame):
             self.modif = Checkbutton(self)
 
     def grid(self):
-        super().grid(padx = 25, pady = 10)
-        self.desc.grid(padx = 10, pady = 10)
-        self.modif.grid(padx = 10, pady = 10)
+        super().grid(padx = 10, pady = 10)
+        self.desc.grid(pady = 10)
+        self.modif.grid(pady = 10, column = 1, row = 0)
 
     def apply(self):
         return self.name + ":" + self.modif.get()
