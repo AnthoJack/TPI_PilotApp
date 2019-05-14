@@ -1,4 +1,4 @@
-from tkinter import Tk, LabelFrame, Label, Button, Image
+from tkinter import Tk, LabelFrame, Label, Button, PhotoImage, Canvas
 
 class View(LabelFrame):
 
@@ -17,10 +17,12 @@ class ImageView(View):
     def __init__(self, parent, width = 850, height = 850, column = 0, row = 0, imageFolder = "C:\\RobotTemp\\images\\", text = "Images"):
         super().__init__(parent = parent, width = width, height = height, column = column, row = row, rowspan = 2, text = text)
         self.imageDir = imageFolder
-        self.content = {"default":Label(self, width = 100, text = "Aucune image à afficher pour le moment. Instructions")} # TODO: add image
+        self.content = {"default":Label(self, width = 100, text = "Aucune image à afficher pour le moment. Instructions"),
+            "image":Canvas(self)}
 
     def refreshImage(self, imagePath):
-        pass
+        self.content["image"].create_image(0, 0, anchor = "nw", image = PhotoImage(file = self.imageDir + imagePath))
+        self.display()
     
     def display(self):
         self.content["default"].grid()

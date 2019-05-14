@@ -4,6 +4,7 @@ from Logger import Logger
 from NetControls import NetControls
 from NetCamera import NetCamera
 from SettingSaver import SettingSaver
+from Setting import Setting
 
 class App:
     
@@ -19,6 +20,12 @@ class App:
         self.views["controls"].content.append(Button(self.views["controls"], text = "DOWN"))
         self.views["controls"].empty = [0, 2, 6, 8]
         self.views["controls"].display()
+        self.views["image"].display()
+        self.views["settings"].content.append(Setting(self.views["settings"], "saveImages", "Save images", False))
+        self.views["settings"].content.append(Setting(self.views["settings"], "imageDir", "Images directory"))
+        self.views["settings"].content.append(Setting(self.views["settings"], "imageQuality", "Image quality", robotSetting = True, appSetting = False))
+        self.views["settings"].content.append(Button(self.views["settings"], text = "Appliquer"))
+        self.views["settings"].display()
         # get config from file
         self.history = Logger()
         self.robotCtrl = NetControls()
