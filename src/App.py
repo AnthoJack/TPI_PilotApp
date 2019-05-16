@@ -14,10 +14,19 @@ class App:
             "controls": ControlsView(self.window, column = 1), 
             "settings": View(self.window, height = 450, column = 1, row = 1, text = "Paramètres")}
         self.views["controls"].content.append(Button(self.views["controls"], bitmap = "@img/ArrowUP.xbm", height = 60, width = 60))
+        self.views["controls"].content[0].bind('<1>', self.pilotUp)
+        self.views["controls"].content[0].bind('<ButtonRelease-1>', self.pilotIdle)
         self.views["controls"].content.append(Button(self.views["controls"], bitmap = "@img/ArrowLEFT.xbm", height = 60, width = 60))
+        self.views["controls"].content[1].bind('<1>', self.pilotLeft)
+        self.views["controls"].content[1].bind('<ButtonRelease-1>', self.pilotIdle)
         self.views["controls"].content.append(Button(self.views["controls"], bitmap = "@img/Camera.xbm", height = 60, width = 60))
+        self.views["controls"].content[2].bind('<ButtonRelease-1>', self.camera)
         self.views["controls"].content.append(Button(self.views["controls"], bitmap = "@img/ArrowRIGHT.xbm", height = 60, width = 60))
+        self.views["controls"].content[3].bind('<1>', self.pilotRight)
+        self.views["controls"].content[3].bind('<ButtonRelease-1>', self.pilotIdle)
         self.views["controls"].content.append(Button(self.views["controls"], bitmap = "@img/ArrowDOWN.xbm", height = 60, width = 60))
+        self.views["controls"].content[4].bind('<1>', self.pilotDown)
+        self.views["controls"].content[4].bind('<ButtonRelease-1>', self.pilotIdle)
         self.views["controls"].empty = [0, 2, 6, 8]
         self.views["controls"].display()
         self.views["image"].display()
@@ -34,14 +43,32 @@ class App:
         self.window.title("PilotApp by Anthony Jaccard")
         self.window.mainloop()
     
-    def pilot(self, type):
+    def pilotUp(self, event):
+        self.robotCtrl.directionY = 1
+        self.robotCtrl.pilot()
+    
+    def pilotDown(self, event):
+        self.robotCtrl.directionY = -1
+        self.robotCtrl.pilot()
+    
+    def pilotLeft(self, event):
+        self.robotCtrl.directionX = -1
+        self.robotCtrl.pilot()
+
+    def pilotRight(self, event):
+        self.robotCtrl.directionX = 1
+        self.robotCtrl.pilot()
+    
+    def pilotIdle(self, event):
+        self.robotCtrl.directionX = 0
+        self.robotCtrl.directionY = 0
+        self.robotCtrl.pilot()
+    
+    def image(self, event):
         pass
     
-    def image(self, path):
+    def camera(self, event):
         pass
     
-    def camera(self):
-        pass
-    
-    def apply(self):
+    def apply(self, event):
         pass
