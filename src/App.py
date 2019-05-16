@@ -45,24 +45,28 @@ class App:
     
     def pilotUp(self, event):
         self.robotCtrl.directionY = 1
-        self.robotCtrl.pilot()
+        self.pilot()
     
     def pilotDown(self, event):
         self.robotCtrl.directionY = -1
-        self.robotCtrl.pilot()
+        self.pilot()
     
     def pilotLeft(self, event):
         self.robotCtrl.directionX = -1
-        self.robotCtrl.pilot()
+        self.pilot()
 
     def pilotRight(self, event):
         self.robotCtrl.directionX = 1
-        self.robotCtrl.pilot()
+        self.pilot()
     
     def pilotIdle(self, event):
         self.robotCtrl.directionX = 0
         self.robotCtrl.directionY = 0
-        self.robotCtrl.pilot()
+        self.pilot()
+    
+    def pilot(self):
+        conStatus = self.robotCtrl.pilot()
+        self.views["controls"].setConState(conStatus == 0)
     
     def image(self, event):
         pass

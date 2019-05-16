@@ -32,6 +32,8 @@ class NetControls:
             else:
                 command = "'idle'"
         if(command != self.previousAction):
-            ssh = subprocess.run(["ssh", host, "/bin/bash", "-ilc", command], shell = True, stdout = subprocess.PIPE, stderr = subprocess.PIPE) #Test
-            print(ssh)
-        self.previousAction = command
+            ssh = subprocess.run(["ssh", host, "/bin/bash", "-ilc", command], shell = True, stdout = subprocess.PIPE, stderr = subprocess.PIPE)
+            self.previousAction = command
+            return ssh.returncode
+        return 0
+        
