@@ -2,10 +2,10 @@ from tkinter import Tk, LabelFrame, Label, Button, PhotoImage, Canvas
 
 class View(LabelFrame):
 
-    def __init__(self, parent, width = 350, height = 350, column = 0, row = 0, rowspan = 1, text = "View"):
+    def __init__(self, parent, width = 350, height = 350, column = 0, row = 0, text = "View", rowspan = 1, columnspan = 1):
         super().__init__(parent, width = width, height = height, bg = "#CCC", bd = 5, padx = 25, pady = 25, relief = "sunken", text = text)
         self.grid_propagate(0)
-        self.grid(column = column, row = row, padx = 10, pady = 10, rowspan = rowspan)
+        self.grid(column = column, row = row, padx = 10, pady = 10, rowspan = rowspan, columnspan = columnspan, sticky = "n")
         self.content = []
 
     def display(self):
@@ -14,10 +14,10 @@ class View(LabelFrame):
 
 class ImageView(View):
 
-    def __init__(self, parent, width = 850, height = 850, column = 0, row = 0, imageFolder = "C:\\RobotTemp\\images\\", text = "Images"):
-        super().__init__(parent = parent, width = width, height = height, column = column, row = row, rowspan = 2, text = text)
+    def __init__(self, parent, width = 850, height = 650, column = 0, row = 0, imageFolder = "C:\\RobotTemp\\images\\", text = "Images", rowspan = 1, columnspan = 1):
+        super().__init__(parent = parent, width = width, height = height, column = column, row = row, text = text, rowspan = rowspan, columnspan = columnspan)
         self.imageDir = imageFolder
-        self.content = {"default":Label(self, width = 100, text = "Aucune image à afficher pour le moment. Instructions"),
+        self.content = {"default":Label(self, text = "Aucune image à afficher pour le moment. Instructions"),
             "image":Canvas(self)}
 
     def refreshImage(self, imagePath):
@@ -29,8 +29,8 @@ class ImageView(View):
 
 class ControlsView(View):
 
-    def __init__(self, parent, width = 350, height = 350, column = 0, row = 0, cCtrl = 3, rCtrl = 3, text = "Contrôles"):
-        super().__init__(parent = parent, width = width, height = height, column = column, row = row, text = text)
+    def __init__(self, parent, width = 350, height = 350, column = 0, row = 0, cCtrl = 3, rCtrl = 3, text = "Contrôles", rowspan = 1, columnspan = 1):
+        super().__init__(parent = parent, width = width, height = height, column = column, row = row, text = text, rowspan = rowspan, columnspan = columnspan)
         self.columns = cCtrl
         self.rows = rCtrl
         self.empty = []
