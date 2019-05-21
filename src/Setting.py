@@ -2,22 +2,19 @@ from tkinter import Frame, Entry, Label, Checkbutton
 
 class Setting(Frame):
     
-    def __init__(self, parent, newName, newDesc, textInput = True, robotSetting = False, appSetting = True):
+    def __init__(self, parent, newName, newDesc, robotSetting = False, appSetting = True):
         super().__init__(parent)
         self.name = newName
         self.desc = Label(self, text = newDesc)
         self.robotSet = robotSetting
         self.appSet = appSetting
         self.modif = 0
-        if(textInput):
-            self.modif = Entry(self, width = 30)
-        else:
-            self.modif = Checkbutton(self)
+        self.modif = Entry(self, width = 45)
 
     def grid(self):
-        super().grid(padx = 10, pady = 10)
-        self.desc.grid(pady = 10)
-        self.modif.grid(pady = 10, column = 1, row = 0)
+        super().grid(padx = 5, pady = 5)
+        self.desc.grid(pady = 5)
+        self.modif.grid(pady = 5, row = 1)
 
     def apply(self):
         return self.name + ":" + self.modif.get()

@@ -14,18 +14,23 @@ class View(LabelFrame):
 
 class ImageView(View):
 
-    def __init__(self, parent, width = 850, height = 650, column = 0, row = 0, imageFolder = "C:\\RobotTemp\\images\\", text = "Images", rowspan = 1, columnspan = 1):
+    def __init__(self, parent, width = 850, height = 650, column = 0, row = 0, imageFolder = "~/PilotAppTemp/images", text = "Images", rowspan = 1, columnspan = 1):
         super().__init__(parent = parent, width = width, height = height, column = column, row = row, text = text, rowspan = rowspan, columnspan = columnspan)
         self.imageDir = imageFolder
-        self.content = {"default":Label(self, text = "Aucune image à afficher pour le moment. Instructions"),
+        self.isImageSet = False
+        self.content = {"default":Label(self, text = "Aucune image à afficher pour le moment. Cliquez sur le bouton caméra ou appuyez sur la barre espace pour prendre une photo et l'afficher ici"),
             "image":Canvas(self)}
 
     def refreshImage(self, imagePath):
+        self.isImageSet = True
         self.content["image"].create_image(0, 0, anchor = "nw", image = PhotoImage(file = self.imageDir + imagePath))
         self.display()
     
     def display(self):
-        self.content["default"].grid()
+        if(self.isImageSet):
+            self.content["image"].grid()
+        else:
+            self.content["default"].grid()
 
 class ControlsView(View):
 

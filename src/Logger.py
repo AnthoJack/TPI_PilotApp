@@ -1,7 +1,11 @@
 class Logger:
-    def __init__(self, logDir = "C:\\RobotTemp\\logs\\", logFile = "Robot.log"):
-        self.dir = logDir
-        self.file = logFile
+    def __init__(self, logFile = "app/Robot.log"):
+        self.logFile = logFile
+        file = open(self.logFile, "w")
+        file.write("")
+        file.close()
     
-    def log(self):
-        pass
+    def log(self, content):
+        file = open(self.logFile, "a")
+        file.write(content)
+        file.close()
