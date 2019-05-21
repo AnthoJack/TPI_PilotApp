@@ -48,11 +48,19 @@ class App:
         self.views["settings"].display()
         self.views["log"].content.append(Label(self.views["log"], width = 100, text = "App load", anchor = "nw", bg = "#CCC"))
         self.views["log"].display()
-
+        #auto configuration
+        conf = open("app/app.conf")
+        lines = conf.readlines()
+        setName = []
+        setVal = []
+        for line in lines:
+            setting = line.split(":")
+            setName.append(setting[0])
+            setVal.append(setting[1].strip("\n"))
         self.history = Logger()
-        self.robotCtrl = NetControls()
-        self.robotCam = NetCamera()
-        self.config = SettingSaver()
+        self.robotCtrl = NetControls(setVal[setName.index("host")])
+        self.robotCam = NetCamera(host = setVal[setName.index("host")], robotPath = setVal[setName.index("robotImageDir")], localPath = setVal[setName.index("appImageDir")])
+        self.config = SettingSaver(host = setVal[setName.index("host")])
         self.window.title("PilotApp by Anthony Jaccard")
         self.window.mainloop()
     
