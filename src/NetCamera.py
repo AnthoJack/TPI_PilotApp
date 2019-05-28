@@ -1,28 +1,29 @@
 import subprocess
 
+#Classe implémentant les méthodes de prise de vue à distance et de récupération des images
 class NetCamera:
     
-    def __init__(self, host = "anthojack@192.168.1.116", robotPath = "/PilotAppTemp/Images/", localPath = "app/images/"):
+    def __init__(self, host = "pi@192.168.0.12", robotPath = "PilotAppTemp/images", localPath = "app/images"):
         self.host = host
         self.robotPath = robotPath
         self.localPath = localPath
-        self.imageCount = 0
+        self.imageCount = 0 #Nombre d'image stockées durant l'éxecution du programme
     
+    #Méthode de prise de vue à distance
     def snap(self):
-        if(subprocess.run(["ssh", self.host, "py", "~/PilotAppTemp/scripts/snap.py"]).returncode):
+        if(subprocess.run(["ssh", self.host, "python3", "~/PilotAppTemp/scripts/snap.py"]).returncode):
             print("ERROR: Unable to take picture")
-            return -1
+            return 1
         else:
-            if(self.getImage()):
-                print("ERROR")
-                return -1
-            else:
-                return self.imageCount
+            return 0
     
+    #Méthode de récupération des images
     def getImage(self):
         self.imageCount += 1
-        if(subprocess.run(["scp", self.host + ":" + self.robotPath + "img.png", self.localPath + "img" + self.imageCount + ".png"])):
+        command = "scp %s:%s/img.gif %s/img%d.gif" % (self.host, self.robotPath, self.localPath, self.imageCount)
+        if(subprocess.run(command, capture_output = True).returncode):
+            print("ERROR")
             return 0
         else:
-            print("ERROR")
-            return 1
+            return self.imageCount
+            

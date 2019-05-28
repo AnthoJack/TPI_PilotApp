@@ -1,5 +1,6 @@
 import subprocess
 
+#Classe gérant la direction du robot et l'envoi des instructions à ce dernier
 class NetControls:
 
     def __init__(self, host):
@@ -8,6 +9,7 @@ class NetControls:
         self.directionX = 0
         self.previousAction = ""
 
+    #Choisit la bonne commande à envoyer au robot en fonction de la valeur des variables de direction
     def pilot(self):
         command = ""
         if(self.directionY > 0):
