@@ -5,6 +5,7 @@ from NetControls import NetControls
 from NetCamera import NetCamera
 from SettingSaver import SettingSaver
 from Setting import Setting
+import datetime
 
 #Classe controlleur gérant l'ensemble de l'application
 class App:
@@ -116,15 +117,19 @@ class App:
     
     #Méthode de callback qui prend une photo et la récupère
     def camera(self, event):
+        self.log("Taking picture")
         if(self.robotCam.snap()): #Envoie l'ordre de prendre la photo
             self.history.log("Error: unable to take picture")
+            self.views["controls"].setConState(False)
         else:
             imageNum = self.robotCam.getImage() #Récupère la photo
             if(imageNum == 0):
                 print("ERROR")
-                self.history.log("Error: unable to take picture")
+                self.history.log("Error: unable to copy picture")
+                self.views["controls"].setConState(False)
             else:
                 self.image("img%d.gif" % imageNum)
+                self.views["controls"].setConState(True)
 
     #Méthode de callback 
     def apply(self):
@@ -148,7 +153,8 @@ class App:
             self.views["log"].content.pop(0)
             self.views["log"].display()
         if(self.previousLog != content): #On n'enregistre de nouveau log que s'il est différent du log précédent
-            self.views["log"].content.append(Label(self.views["log"], text = content,  width = 100, anchor = "nw", bg = "#CCC"))
+            message = str(datetime.datetime.now()) + " : " + content
+            self.views["log"].content.append(Label(self.views["log"], text = message,  width = 100, anchor = "nw", bg = "#CCC"))
             self.views["log"].display()
-            self.history.log(content + "\n")
+            self.history.log(message + "\n")
             self.previousLog = content
