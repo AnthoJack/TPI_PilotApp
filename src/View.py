@@ -27,7 +27,6 @@ class ImageView(View):
             "image":Canvas(self, width = 800, height = 600)} #Par défaut, la classe contient un label indiquant les instructions pour prendre une image et un canvas pour y dessiner les images
 
     #Modifie l'image à afficher
-    
     def refreshImage(self, imagePath):
         self.isImageSet = True
         self.img = PhotoImage(file = self.imageDir + imagePath)
@@ -64,9 +63,27 @@ class ControlsView(View):
                     cellIndex += 1
                     buttonIndex += 1
 
-    
-    def setConState(self, state): #Change la couleur de fond de la vue
+    #Change la couleur de fond de la vue
+    def setConState(self, state): 
         if(state):
             self.config(bg = "#070")
         else:
             self.config(bg = "#700")
+
+#Vue se chargeant de l'affichage des logs
+class LogView(View):
+
+    def __init__(self, parent, width = 850, height = 250, column = 0, row = 0, text = "Logs", rowspan = 1, columnspan = 1):
+        super().__init__(parent = parent, width = width, height = height, column = column, row = row, text = text, rowspan = rowspan, columnspan = columnspan)
+        self.logCount = 0
+        self.newLog("App Load")
+    
+    #Ajoute un log à la liste et supprime le log le plus ancien si la limite est dépassée
+    def newLog(self, content):
+        if(self.logCount >= 8): #Au maximum 8 log peuvent être affichés
+            self.content[0].grid_forget()
+            self.content.pop(0)
+            self.logCount -= 1
+        self.content.append(Label(self, text = content,  width = 100, anchor = "nw", bg = "#CCC"))
+        self.display()
+        self.logCount += 1

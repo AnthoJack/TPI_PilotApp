@@ -1,10 +1,118 @@
-2019-05-28 11:24:58.870838 : Taking picture
-2019-05-28 11:25:06.588357 : New Image: img1.gif
-2019-05-28 11:25:07.399417 : Taking picture
-2019-05-28 11:25:14.988553 : New Image: img2.gif
-2019-05-28 11:25:15.615420 : Taking picture
-2019-05-28 11:25:23.413972 : New Image: img3.gif
-2019-05-28 11:25:26.287419 : Taking picture
-2019-05-28 11:25:34.684628 : New Image: img4.gif
-2019-05-28 11:29:39.876606 : Piloting robot forward
-2019-05-28 11:30:00.943470 : Robot stopped
+2019-05-29 10:38:18.588505 : Piloting robot forward
+2019-05-29 10:38:19.763841 : Robot stopped
+2019-05-29 10:38:21.725911 : Piloting robot right
+2019-05-29 10:38:22.998191 : Robot stopped
+2019-05-29 10:38:28.236571 : Piloting robot left
+2019-05-29 10:38:29.373348 : Robot stopped
+2019-05-29 10:38:31.060322 : Taking picture
+2019-05-29 10:38:40.342127 : New Image: img1.gif
+2019-05-29 10:39:15.860634 : Piloting robot forward
+2019-05-29 10:39:17.025104 : Robot stopped
+2019-05-29 10:39:18.715124 : Piloting robot left
+2019-05-29 10:39:19.948103 : Robot stopped
+2019-05-29 10:39:29.520647 : Piloting robot right
+2019-05-29 10:39:30.696976 : Robot stopped
+2019-05-29 10:39:31.903574 : Taking picture
+2019-05-29 10:39:40.723209 : New Image: img2.gif
+2019-05-29 10:40:51.035288 : Piloting robot left
+2019-05-29 10:40:52.390464 : Robot stopped
+2019-05-29 10:40:55.953392 : Piloting robot right
+2019-05-29 10:40:55.963394 : Piloting robot right
+2019-05-29 10:40:55.980065 : Piloting robot right
+2019-05-29 10:40:56.010772 : Piloting robot right
+2019-05-29 10:40:56.041799 : Piloting robot right
+2019-05-29 10:40:56.074677 : Piloting robot right
+2019-05-29 10:40:56.107368 : Piloting robot right
+2019-05-29 10:40:56.140483 : Piloting robot right
+2019-05-29 10:40:56.173520 : Piloting robot right
+2019-05-29 10:40:56.206087 : Piloting robot right
+2019-05-29 10:40:57.376243 : Robot stopped
+2019-05-29 10:40:58.861559 : Piloting robot right
+2019-05-29 10:41:00.266922 : Robot stopped
+2019-05-29 10:41:03.520816 : Piloting robot right
+2019-05-29 10:41:03.529857 : Piloting robot right
+2019-05-29 10:41:03.539826 : Piloting robot right
+2019-05-29 10:41:03.570851 : Piloting robot right
+2019-05-29 10:41:03.600195 : Piloting robot right
+2019-05-29 10:41:03.633264 : Piloting robot right
+2019-05-29 10:41:03.666321 : Piloting robot right
+2019-05-29 10:41:03.699452 : Piloting robot right
+2019-05-29 10:41:03.732417 : Piloting robot right
+2019-05-29 10:41:03.765466 : Piloting robot right
+2019-05-29 10:41:03.798367 : Piloting robot right
+2019-05-29 10:41:03.831533 : Piloting robot right
+2019-05-29 10:41:03.863586 : Piloting robot right
+2019-05-29 10:41:03.897090 : Piloting robot right
+2019-05-29 10:41:03.929605 : Piloting robot right
+2019-05-29 10:41:03.962932 : Piloting robot right
+2019-05-29 10:41:03.996122 : Piloting robot right
+2019-05-29 10:41:04.029826 : Piloting robot right
+2019-05-29 10:41:04.062934 : Piloting robot right
+2019-05-29 10:41:04.095166 : Piloting robot right
+2019-05-29 10:41:04.129027 : Piloting robot right
+2019-05-29 10:41:04.162234 : Piloting robot right
+2019-05-29 10:41:04.194371 : Piloting robot right
+2019-05-29 10:41:04.227025 : Piloting robot right
+2019-05-29 10:41:04.260049 : Piloting robot right
+2019-05-29 10:41:04.293175 : Piloting robot right
+2019-05-29 10:41:04.325801 : Piloting robot right
+2019-05-29 10:41:04.358977 : Piloting robot right
+2019-05-29 10:41:04.392292 : Piloting robot right
+2019-05-29 10:41:04.424727 : Piloting robot right
+2019-05-29 10:41:04.457966 : Piloting robot right
+2019-05-29 10:41:04.491346 : Piloting robot right
+2019-05-29 10:41:04.524041 : Piloting robot right
+2019-05-29 10:41:04.557182 : Piloting robot right
+2019-05-29 10:41:04.590277 : Piloting robot right
+2019-05-29 10:41:04.623154 : Piloting robot right
+2019-05-29 10:41:04.656177 : Piloting robot right
+2019-05-29 10:41:04.688718 : Piloting robot right
+2019-05-29 10:41:04.722278 : Piloting robot right
+2019-05-29 10:41:04.755301 : Piloting robot right
+2019-05-29 10:41:04.788329 : Piloting robot right
+2019-05-29 10:41:04.821376 : Piloting robot right
+2019-05-29 10:41:04.854401 : Piloting robot right
+2019-05-29 10:41:05.982465 : Robot stopped
+2019-05-29 10:41:09.456170 : Piloting robot forward
+2019-05-29 10:41:10.786080 : Piloting robot left
+2019-05-29 10:41:10.814839 : Piloting robot left
+2019-05-29 10:41:10.843861 : Piloting robot left
+2019-05-29 10:41:10.860872 : Piloting robot left
+2019-05-29 10:41:10.875885 : Piloting robot left
+2019-05-29 10:41:10.902318 : Piloting robot left
+2019-05-29 10:41:10.935837 : Piloting robot left
+2019-05-29 10:41:10.968924 : Piloting robot left
+2019-05-29 10:41:11.001809 : Piloting robot left
+2019-05-29 10:41:11.034540 : Piloting robot left
+2019-05-29 10:41:11.068785 : Piloting robot left
+2019-05-29 10:41:11.100895 : Piloting robot left
+2019-05-29 10:41:11.133478 : Piloting robot left
+2019-05-29 10:41:11.166718 : Piloting robot left
+2019-05-29 10:41:11.199973 : Piloting robot left
+2019-05-29 10:41:11.232727 : Piloting robot left
+2019-05-29 10:41:11.265766 : Piloting robot left
+2019-05-29 10:41:11.299043 : Piloting robot left
+2019-05-29 10:41:11.332307 : Piloting robot left
+2019-05-29 10:41:11.364443 : Piloting robot left
+2019-05-29 10:41:11.398605 : Piloting robot left
+2019-05-29 10:41:11.431621 : Piloting robot left
+2019-05-29 10:41:11.464903 : Piloting robot left
+2019-05-29 10:41:11.497933 : Piloting robot left
+2019-05-29 10:41:11.530855 : Piloting robot left
+2019-05-29 10:41:11.564183 : Piloting robot left
+2019-05-29 10:41:11.595428 : Piloting robot left
+2019-05-29 10:41:11.628791 : Piloting robot left
+2019-05-29 10:41:11.662027 : Piloting robot left
+2019-05-29 10:41:11.694439 : Piloting robot left
+2019-05-29 10:41:11.727690 : Piloting robot left
+2019-05-29 10:41:11.760943 : Piloting robot left
+2019-05-29 10:41:11.794343 : Piloting robot left
+2019-05-29 10:41:11.826733 : Piloting robot left
+2019-05-29 10:41:11.860135 : Piloting robot left
+2019-05-29 10:41:11.893252 : Piloting robot left
+2019-05-29 10:41:11.925741 : Piloting robot left
+2019-05-29 10:41:11.958766 : Piloting robot left
+2019-05-29 10:41:13.425251 : Robot stopped
+2019-05-29 10:41:14.086913 : Robot stopped
+2019-05-29 10:41:58.491215 : Piloting robot right
+2019-05-29 10:42:00.089981 : Robot stopped

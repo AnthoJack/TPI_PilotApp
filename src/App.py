@@ -1,5 +1,5 @@
 from tkinter import Tk, Button, Label
-from View import View, ImageView, ControlsView
+from View import View, ImageView, ControlsView, LogView
 from Logger import Logger
 from NetControls import NetControls
 from NetCamera import NetCamera
@@ -17,7 +17,7 @@ class App:
         self.views = {"image": ImageView(self.window, width = 850, height = 650, rowspan = 2, columnspan = 2), 
             "controls": ControlsView(self.window, column = 2), 
             "settings": View(self.window, height = 450, column = 2, row = 1, text = "Paramètres", rowspan = 2),
-            "log": View(self.window, height = 250, width = 850, column = 0, row = 2, text = "Logs", columnspan = 2)}
+            "log": LogView(self.window, height = 250, width = 850, column = 0, row = 2, text = "Logs", columnspan = 2)}
         #Mise en place des mécanismes pour faire avancer le robot
         self.views["controls"].content.append(Button(self.views["controls"], bitmap = "@img/ArrowUP.xbm", height = 70, width = 70)) #Ajout du bouton aux contrôles
         self.views["controls"].content[0].bind('<1>', self.pilotUp) #Liaison du clic de la souris avec l'action d'avancer
@@ -54,7 +54,6 @@ class App:
         self.views["settings"].content.append(Setting(self.views["settings"], "imageResolution", "Resolution image (WxH)", robotSetting = True, appSetting = False))
         self.views["settings"].content.append(Button(self.views["settings"], text = "Appliquer", command = self.apply))
         self.views["settings"].display()
-        self.views["log"].content.append(Label(self.views["log"], width = 100, text = "App load", anchor = "nw", bg = "#CCC"))
         self.views["log"].display()
         #auto configuration
         conf = open("app/app.conf")
@@ -148,13 +147,7 @@ class App:
     
     #Méthode d'affichage et d'enregistrement des log
     def log(self, content):
-        if(len(self.views["log"].content) >= 8): #Au maximum 8 log peuvent être affichés
-            self.views["log"].content[0].grid_forget()
-            self.views["log"].content.pop(0)
-            self.views["log"].display()
-        if(self.previousLog != content): #On n'enregistre de nouveau log que s'il est différent du log précédent
+        if(content != self.previousLog): #On n'enregistre de nouveau log que s'il est différent du log précédent
             message = str(datetime.datetime.now()) + " : " + content
-            self.views["log"].content.append(Label(self.views["log"], text = message,  width = 100, anchor = "nw", bg = "#CCC"))
-            self.views["log"].display()
+            self.views["log"].newLog(message)
             self.history.log(message + "\n")
-            self.previousLog = content
